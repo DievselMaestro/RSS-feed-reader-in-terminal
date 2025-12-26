@@ -16,6 +16,7 @@ with open(Dateiname) as f:
 
 
 
+
 """
 with open("demofile.txt") as f:
   print(f.readline())
