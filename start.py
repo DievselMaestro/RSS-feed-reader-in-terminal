@@ -14,7 +14,28 @@ with open(Dateiname) as f:
         zeile = zeile + 1
         print(zeile,":",x)
 
+str(DatumHeute)
+if DatumHeute == "":
+    print("Datum ist nicht gesetzt")
+else:
+    print("Datum ist heute auf true")
 
+
+"""
+Funktion erstellen die checkt ob die Variable leer ist oder nicht
+"""
+
+def ist_variabel_leel(variabel):
+    if variabel == "":
+      print("Die Variabel:",variabel, "ist leer.")
+    else:
+        print("Die Variabel:",variabel, "ist nicht leer.")
+
+print("Funktions test")
+ist_variabel_leel(DatumHeute)
+
+ist_variabel_leel(__name__)
+print("main :",__name__)
 
 
 """
