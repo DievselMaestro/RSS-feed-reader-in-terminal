@@ -8,6 +8,8 @@ def is_var_empty(var):
         print("The Var:",var,"is empty!")
     else:
         print("The Var:",var,"is not empty!")
+        var_is_not_empty = True
+        return(var_is_not_empty)
 
 # Funktion für die Eingabe der URL anfragen
 def prompt_input():
@@ -15,10 +17,23 @@ def prompt_input():
     rss_feed_url = input()
     return (rss_feed_url)
 
+def get_rss_feed():
+    d = feedparser.parse(prompt_input())
+    print(d.feed.title_detail)
 
-var = prompt_input()
+
+
+def main():
+    get_rss_feed()
+
+#var = prompt_input()
 
 
 #test = input()
 
-is_var_empty(var)
+#is_var_empty(var)
+
+if __name__ == "__main__":
+    main()
+
+print(__name__)
