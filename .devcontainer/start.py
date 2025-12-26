@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
+from datetime import date
+DatumHeute = date.today()
 Dateiname = "demofile.txt"
 
 Datei = open(Dateiname)
-print(Datei.read())
+# Das heute Datum
+print("Heute ist:",DatumHeute)
 Datei.close()
 print("-------")
 zeile = 0
