@@ -9,7 +9,7 @@ zeile = 0
 with open(Dateiname) as f:
     for x in f:
         zeile = zeile + 1
-        print(zeile":"x)
+        print(zeile,":",x)
 
 
 
