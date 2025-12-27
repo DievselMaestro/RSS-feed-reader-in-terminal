@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+
+print("")
+print("Hallo Catalina")
+print("wir machen einen Herz")
+print("      ---     --- ")
+print("    /    \   /    \ ")
+print("   |      \ /      |")
+print("    \             /")
+print("     \           /")
+print("      \         /")
+print("       \       /")
+print("        \     /")
+print("         \   / ")
+print("          \./")

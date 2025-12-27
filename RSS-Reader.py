@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import feedparser
+from colorama import init, Fore, Back, Style
+init(autoreset=True)
 
 # Check is the Variabel is empty or not
 # for Debug reason
@@ -14,7 +16,7 @@ def is_var_empty(var):
 # Funktion für die Eingabe der URL anfragen
 def prompt_input():
     #Debug On or Off
-    var_debug_on = 0
+    var_debug_on = 1
     if var_debug_on == 1:
         rss_feed_url = "https://www.heise.de/rss/heise-atom.xml"
     else:
@@ -33,11 +35,13 @@ def get_rss_feed():
     for x in d.entries:
         #print(x)
         # RSS feed
-        print("RSS Feed:",i)
+        print(Style.BRIGHT + Fore.YELLOW + "RSS Feed:",i)
         print("")
-        print("Titel: ",d.entries[i].title)
-        print("Link:", d.entries[i].link)
-        print("Beschreibung:",d.entries[i].description)
+        print(Style.BRIGHT + Fore.MAGENTA + "Titel: ",d.entries[i].title)
+        print(Style.BRIGHT + Fore.MAGENTA + "Link:", d.entries[i].link)
+        print(Style.BRIGHT + Fore.MAGENTA + "Beschreibung:",d.entries[i].description)
+        print(Style.DIM + Fore.BLUE + "Datum:", Fore.BLUE + d.entries[i].published)
+        print("")
         print("------------------")
         print("")
         i = i + 1
