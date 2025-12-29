@@ -16,14 +16,14 @@ def is_var_empty(var):
 # Funktion für die Eingabe der URL anfragen
 def prompt_input():
     # Debug On or Off
-    var_debug_on = 1
-    if var_debug_on == 1:
-        rss_feed_url = "https://www.heise.de/rss/heise-atom.xml"
+    var_debug_on: bool = True
+    if var_debug_on == True:
+        rss_feed_url: str = "https://www.heise.de/rss/heise-atom.xml"
     else:
         print("Enter RSS feed URL:")
         rss_feed_url = input()
         
-    return rss_feed_url
+    return str(rss_feed_url).strip()
                
 
 def get_rss_feed():
@@ -47,7 +47,7 @@ def get_rss_feed():
         i = i + 1
         #print("Datum:", d.feed.published)
         
-
+ 
 def main():
     get_rss_feed()
 
