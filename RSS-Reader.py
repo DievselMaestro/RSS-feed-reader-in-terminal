@@ -6,9 +6,15 @@ init(autoreset=True)
 DEBUG_MODE: bool = True
 DEFAULT_RSS_URL: str = "https://www.heise.de/rss/heise-atom.xml"
     
-# Funktion für die Eingabe der URL anfragen
-def prompt_input() -> str: 
-    # Debug On or Off
+def prompt_input() -> str:
+    """
+    Fragt den Benutzer nach einer RSS-Feed-URL.
+    Im Debug-Modus wird eine Standard-URL verwendet.
+
+    Returns:
+        str: Die RSS-Feed-URL
+    """ 
+    
     if DEBUG_MODE:
         rss_feed_url = DEFAULT_RSS_URL
     else:
@@ -19,9 +25,12 @@ def prompt_input() -> str:
                
 
 def get_rss_feed() -> None:
-    # RSS von der URL Adresse abrufen
+    """
+    RSS Feed abrufen und in der Console ausgeben.
     
-    # print(d.feed.title_detail)
+    Returns:
+        none
+    """
     
     try:
         url = prompt_input()
@@ -34,14 +43,14 @@ def get_rss_feed() -> None:
         for index, entry in enumerate(d.entries):
             # RSS feed
             print(f"{Style.BRIGHT}{Fore.YELLOW}RSS Feed: {index}")
-            print("")
+            print()
             print(f"{Style.BRIGHT}{Fore.MAGENTA}Titel: {Style.NORMAL}{Fore.WHITE}{entry.title}")
             print(f"{Style.BRIGHT}{Fore.MAGENTA}Beschreibung: {Style.NORMAL}{Fore.WHITE}{entry.description}")
             print(f"{Style.BRIGHT}{Fore.MAGENTA}Link: {Style.NORMAL}{Fore.WHITE}{entry.link}")
             print(f"{Style.DIM}{Fore.BLUE}Datum: {Style.NORMAL}{Fore.BLUE}{entry.published}")
-            print("")
+            print()
             print("------------------")
-            print("")
+            print()
             
     except Exception as e:
         print(f"Fehler beim laden des RSS-Feeds: {e}")
