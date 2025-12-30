@@ -3,12 +3,14 @@ import feedparser
 from colorama import init, Fore, Back, Style
 init(autoreset=True)
 
+DEBUG_MODE: bool = True
+DEFAULT_RSS_URL: str = "https://www.heise.de/rss/heise-atom.xml"
+    
 # Funktion für die Eingabe der URL anfragen
 def prompt_input() -> str: 
     # Debug On or Off
-    var_debug_on: bool = True
-    if var_debug_on:
-        rss_feed_url: str = "https://www.heise.de/rss/heise-atom.xml"
+    if DEBUG_MODE:
+        rss_feed_url = DEFAULT_RSS_URL
     else:
         print("Enter RSS feed URL:")
         rss_feed_url = input()
