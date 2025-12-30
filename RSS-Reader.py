@@ -34,12 +34,12 @@ def get_rss_feed():
     
     for index, entry in enumerate(d.entries):
         # RSS feed
-        print(Style.BRIGHT + Fore.YELLOW + "RSS Feed:",index)
+        print(f"{Style.BRIGHT}{Fore.YELLOW}RSS Feed: {index}")
         print("")
-        print(Style.BRIGHT + Fore.MAGENTA + "Titel: ",entry.title)
-        print(Style.BRIGHT + Fore.MAGENTA + "Beschreibung:",entry.description)
-        print(Style.BRIGHT + Fore.MAGENTA + "Link:", entry.link)
-        print(Style.DIM + Fore.BLUE + "Datum:", Fore.BLUE + entry.published)
+        print(f"{Style.BRIGHT}{Fore.MAGENTA}Titel: {Style.NORMAL}{Fore.WHITE}{entry.title}")
+        print(f"{Style.BRIGHT}{Fore.MAGENTA}Beschreibung: {Style.NORMAL}{Fore.WHITE}{entry.description}")
+        print(f"{Style.BRIGHT}{Fore.MAGENTA}Link: {Style.NORMAL}{Fore.WHITE}{entry.link}")
+        print(f"{Style.DIM}{Fore.BLUE}Datum: {Style.NORMAL}{Fore.BLUE}{entry.published}")
         print("")
         print("------------------")
         print("")
