@@ -49,8 +49,11 @@ def get_rss_feed() -> None:
             print(f"{Style.BRIGHT}{Fore.MAGENTA}Link: {Style.NORMAL}{Fore.WHITE}{entry.link}")
             print(f"{Style.DIM}{Fore.BLUE}Datum: {Style.NORMAL}{Fore.BLUE}{entry.published}")
             print()
-            print("------------------")
+            print("-" * 20)
             print()
+            
+            if index == 5:
+                break
             
     except Exception as e:
         print(f"Fehler beim laden des RSS-Feeds: {e}")
