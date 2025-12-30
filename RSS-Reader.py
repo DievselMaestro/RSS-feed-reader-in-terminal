@@ -3,18 +3,8 @@ import feedparser
 from colorama import init, Fore, Back, Style
 init(autoreset=True)
 
-# Check is the Variabel is empty or not
-# for Debug reason
-# def is_var_empty(var):
-#     if var == "":
-#         print("The Var:",var,"is empty!")
-#     else:
-#         print("The Var:",var,"is not empty!")
-#         var_is_not_empty = True
-#         return(var_is_not_empty)
-
 # Funktion für die Eingabe der URL anfragen
-def prompt_input():
+def prompt_input() -> str: 
     # Debug On or Off
     var_debug_on: bool = True
     if var_debug_on:
@@ -26,35 +16,39 @@ def prompt_input():
     return str(rss_feed_url).strip()
                
 
-def get_rss_feed():
+def get_rss_feed() -> None:
     # RSS von der URL Adresse abrufen
-    d = feedparser.parse(prompt_input())
+    
     # print(d.feed.title_detail)
     
-    
-    for index, entry in enumerate(d.entries):
-        # RSS feed
-        print(f"{Style.BRIGHT}{Fore.YELLOW}RSS Feed: {index}")
-        print("")
-        print(f"{Style.BRIGHT}{Fore.MAGENTA}Titel: {Style.NORMAL}{Fore.WHITE}{entry.title}")
-        print(f"{Style.BRIGHT}{Fore.MAGENTA}Beschreibung: {Style.NORMAL}{Fore.WHITE}{entry.description}")
-        print(f"{Style.BRIGHT}{Fore.MAGENTA}Link: {Style.NORMAL}{Fore.WHITE}{entry.link}")
-        print(f"{Style.DIM}{Fore.BLUE}Datum: {Style.NORMAL}{Fore.BLUE}{entry.published}")
-        print("")
-        print("------------------")
-        print("")
+    try:
+        url = prompt_input()
+        d = feedparser.parse(url)
+        
+        if not d.entries:
+            print(f"Keine Einträge gefunden prüfe die RSS URL.")
+            return
+        
+        for index, entry in enumerate(d.entries):
+            # RSS feed
+            print(f"{Style.BRIGHT}{Fore.YELLOW}RSS Feed: {index}")
+            print("")
+            print(f"{Style.BRIGHT}{Fore.MAGENTA}Titel: {Style.NORMAL}{Fore.WHITE}{entry.title}")
+            print(f"{Style.BRIGHT}{Fore.MAGENTA}Beschreibung: {Style.NORMAL}{Fore.WHITE}{entry.description}")
+            print(f"{Style.BRIGHT}{Fore.MAGENTA}Link: {Style.NORMAL}{Fore.WHITE}{entry.link}")
+            print(f"{Style.DIM}{Fore.BLUE}Datum: {Style.NORMAL}{Fore.BLUE}{entry.published}")
+            print("")
+            print("------------------")
+            print("")
+            
+    except Exception as e:
+        print(f"Fehler beim laden des RSS-Feeds: {e}")
+        return
  
 def main():
     get_rss_feed()
 
-#var = prompt_input()
-
-
-#test = input()
-
-#is_var_empty(var)
 
 if __name__ == "__main__":
     main()
 
-#print(__name__)
