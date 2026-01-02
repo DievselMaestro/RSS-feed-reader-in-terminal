@@ -1,2 +1,2 @@
 https://www.heise.de/rss/heise-atom.xml
-https://feedparser.readthedocs.io/en/latest/examples/rss20.xml
+https://www.blick.ch/sport/ski/rss.xml
