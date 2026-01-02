@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import feedparser
+from urllib.parse import urlparse
 from colorama import init, Fore, Back, Style
 init(autoreset=True)
 
@@ -68,7 +69,7 @@ def get_rss_feed() -> None:
             
             for index, entry in enumerate(d.entries):
                 # RSS feed
-                print(f"{Style.BRIGHT}{Fore.YELLOW}RSS Feed: {index}")
+                print(f"{Style.BRIGHT}{Fore.YELLOW}RSS Feed: {index} --- {get_name_from_url(index,url)}")
                 print()
                 print(f"{Style.BRIGHT}{Fore.MAGENTA}Titel: {Style.NORMAL}{Fore.WHITE}{entry.title}")
                 print(f"{Style.BRIGHT}{Fore.MAGENTA}Beschreibung: {Style.NORMAL}{Fore.WHITE}{entry.description}")
@@ -85,6 +86,19 @@ def get_rss_feed() -> None:
     except Exception as e:
         print(f"Fehler beim laden des RSS-Feeds: {e}")
         return
+    
+    
+def get_name_from_url(var:int,url) -> str:
+    """
+    Docstring for get_name_from_url
+    
+    :return: Hostname der URL wird zurück gegeben.
+    :rtype: str
+    """
+    o = urlparse(url)
+    return o.hostname
+        
+    
  
 def main():
     #open_file()
