@@ -90,9 +90,15 @@ def get_rss_feed() -> None:
     
 def get_name_from_url(var:int,url) -> str:
     """
-    Docstring for get_name_from_url
-    
-    :return: Hostname der URL wird zurück gegeben.
+    Extrahiert den Hostnamen aus einer RSS-Feed-URL.
+
+    Beispiel: "https://www.heise.de/rss/heise-atom.xml" -> "www.heise.de"
+
+    :param var: Index des RSS-Feeds (aktuell nicht verwendet)
+    :type var: int
+    :param url: Die vollständige RSS-Feed-URL
+    :type url: str
+    :return: Der Hostname der URL (z.B. "www.heise.de")
     :rtype: str
     """
     o = urlparse(url)
