@@ -107,7 +107,6 @@ def get_name_from_url(var:int,url) -> str:
     
  
 def main():
-    #open_file()
     get_rss_feed()
 
 
