@@ -67,7 +67,7 @@ def get_rss_feed() -> None:
                 print(f"Keine Einträge gefunden prüfe die RSS URL.")
                 return
             
-            for index, entry in enumerate(d.entries):
+            for index, entry in enumerate(d.entries[:10]):
                 # RSS feed
                 print(f"{Style.BRIGHT}{Fore.YELLOW}RSS Feed: {index} --- {get_name_from_url(index,url)}")
                 print()
@@ -80,8 +80,8 @@ def get_rss_feed() -> None:
                 print()
                 
                 # Bricht Loop nach der 6 wiederholung ab
-                if index == 5:
-                    break
+                #if index == 5:
+                #    break
             
     except Exception as e:
         print(f"Fehler beim laden des RSS-Feeds: {e}")
